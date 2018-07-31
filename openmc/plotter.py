@@ -170,12 +170,12 @@ def plot_xs(this, types, divisor_types=None, temperature=294., data_type=None,
             data = data_new
     else:
         # Calculate for MG cross sections
-        E, data = calculate_mgxs(this, types, orders, temperature,
+    E, data = calculate_mgxs(this, data_type, types, orders, temperature,
                                  mg_cross_sections, ce_cross_sections,
                                  enrichment)
 
         if divisor_types:
-            cv.check_length('divisor types', divisor_types, len(types))
+            cv.check_length('divisor types', data_type, divisor_types, len(types))
             Ediv, data_div = calculate_mgxs(this, divisor_types,
                                             divisor_orders, temperature,
                                             mg_cross_sections,
@@ -571,7 +571,7 @@ def _calculate_cexs_elem_mat(this, types, temperature=294.,
         name = nuclide[0]
         nuc = nuclide[1]
         sab_tab = sabs[name]
-        temp_E, temp_xs = calculate_cexs(nuc, data_type, types, T, sab_tab,
+        temp_E, temp_xs = calculate_cexs(nuc, 'nuclide', types, T, sab_tab,
                                          cross_sections)
         E.append(temp_E)
         # Since the energy grids are different, store the cross sections as

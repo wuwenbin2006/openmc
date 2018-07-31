@@ -267,6 +267,7 @@ class Geometry(object):
         surfaces = OrderedDict()
 
         for cell in self.get_all_cells().values():
+          if (cell.region is not None):
             surfaces = cell.region.get_surfaces(surfaces)
         return surfaces
 

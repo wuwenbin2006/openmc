@@ -737,7 +737,7 @@ def get_openmc_lattice(openmoc_lattice):
 
 
 def get_openmoc_geometry(openmc_geometry):
-    """Return an OpenMC geometry corresponding to an OpenMOC geometry.
+    """Return an OpenMOC geometry corresponding to an OpenMC geometry.
 
     Parameters
     ----------
